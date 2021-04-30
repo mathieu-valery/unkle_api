@@ -1,0 +1,14 @@
+USER IS MATHIEU VALERY
+curl -i -X GET                                       \
+       -H 'Content-Type: application/json'              \
+       -H 'X-User-Email: mathieuvalery@gmail.com'               \
+       -H 'X-User-Token: AWzE-pZFTyzZiNbiRmJj'          \
+       http://localhost:3000/api/v1/contracts
+
+
+USER IS JOHN DOE
+curl -i -X GET                                       \
+       -H 'Content-Type: application/json'              \
+       -H 'X-User-Email: johndoe@gmail.com'               \
+       -H 'X-User-Token: F33RvNDM9XYsgyxKabT-'          \
+       http://localhost:3000/api/v1/contracts

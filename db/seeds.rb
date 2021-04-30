@@ -44,7 +44,19 @@ puts('Done !')
 puts('Creating contracts...')
 contracts = Contract.create!([
     {
-        number: '123456',
+        number: '000000',
+        status: 'active',
+        date_start: '2021-01-01',
+        date_end: '2022-01-01'
+    },
+    {
+        number: '000001',
+        status: 'active',
+        date_start: '2021-01-01',
+        date_end: '2022-01-01'
+    },
+    {
+        number: '000002',
         status: 'active',
         date_start: '2021-01-01',
         date_end: '2022-01-01'
@@ -56,8 +68,16 @@ puts('Done !')
 puts('Creating subscriptions...')
 subscriptions = Subscription.create!([
     {
-        user_id: User.first.id,
+        user_id: User.second.id,
         contract_id: Contract.first.id
+    },
+    {
+        user_id: User.second.id,
+        contract_id: Contract.second.id
+    },
+    {
+        user_id: User.third.id,
+        contract_id: Contract.third.id
     }])
 
 puts('Done !')
