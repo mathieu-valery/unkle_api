@@ -2,7 +2,7 @@ USER IS MATHIEU VALERY
 curl -i -X GET                                       \
        -H 'Content-Type: application/json'              \
        -H 'X-User-Email: mathieuvalery@gmail.com'               \
-       -H 'X-User-Token: AWzE-pZFTyzZiNbiRmJj'          \
+       -H 'X-User-Token: qVsm5b5zVfUXx3p-R9h5'          \
        http://localhost:3000/api/v1/contracts
 
 
@@ -10,5 +10,5 @@ USER IS JOHN DOE
 curl -i -X GET                                       \
        -H 'Content-Type: application/json'              \
        -H 'X-User-Email: johndoe@gmail.com'               \
-       -H 'X-User-Token: F33RvNDM9XYsgyxKabT-'          \
+       -H 'X-User-Token: 1dregDwpJhy-hxAkc-xX'          \
        http://localhost:3000/api/v1/contracts

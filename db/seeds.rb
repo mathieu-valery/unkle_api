@@ -14,28 +14,28 @@ users = User.create!([
         date_of_birth: '1990-03-21',    
         email: 'mathieuvalery@gmail.com',    
         password: 'helloworld',
-        admin: true },
+        admin?: true },
 
     {   first_name: 'John',
         last_name: 'Doe',    
         date_of_birth: '1980-01-01',    
         email: 'johndoe@gmail.com',    
         password: 'helloworld',
-        admin: false },
+        admin?: false },
 
     {   first_name: 'Georges',
         last_name: 'Abitbol',    
         date_of_birth: '1980-01-01',    
         email: 'georgesabitbol@gmail.com',    
         password: 'helloworld',
-        admin: false },
+        admin?: false },
         
     {   first_name: 'Odile',
         last_name: 'Deray',    
         date_of_birth: '1980-01-01',    
         email: 'odilederay@gmail.com',    
         password: 'helloworld',
-        admin: false },
+        admin?: false },
         
         ])
 
