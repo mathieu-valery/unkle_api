@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  acts_as_token_authenticatable
+
   has_many :subscriptions
-  has_many :contracts, through: :suscriptions
+  has_many :contracts, through: :subscriptions
 end

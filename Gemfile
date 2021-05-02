@@ -27,6 +27,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 # authentification
 gem 'devise'
+gem 'simple_token_authentication'
 
 #authorization
 gem 'pundit'
