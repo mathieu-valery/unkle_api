@@ -12,3 +12,7 @@ curl -i -X GET                                       \
        -H 'X-User-Email: johndoe@gmail.com'               \
        -H 'X-User-Token: 1dregDwpJhy-hxAkc-xX'          \
        http://localhost:3000/api/v1/contracts
+
+SIGN IN
+curl -d '{"email":"johndoe@gmail.com", "password":"helloworld"}' -H "Content-Type: application/json" -X POST http://localhost:3000/api/v1/sign_in
+
