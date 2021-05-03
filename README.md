@@ -56,4 +56,4 @@ body example :
        
        "options": {"names": ["fire", "housebreaking"]}}`
 
-if you are not admin, you can't create a contract
+**Only admins can create a contract**
