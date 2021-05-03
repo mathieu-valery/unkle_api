@@ -18,34 +18,48 @@ class Api::V1::ContractsController < Api::V1::BaseController
         @subscriptions = []
         @contract_options = []
 
-        @users_ids = User.all.ids
-        @options_ids = Option.all.ids
+        #VERIFIER SI USERS ET OPTIONS DANS LES PARAMS EXISTENT DANS LA BD ET QUE LES PARAMS NE SONT PAS VIDES
+        @users_found = User.where(email: clients_params[:emails]).to_a
+        @options_found = Option.where(name: options_params[:names]).to_a
 
-        #VERIFIER SI USERS ID ET OPTIONS ID DANS LES PARAMS EXISTENT DANS LA BD
-        if users_params[:users_id].all? {|i| @users_ids.exclude?(i)}
+        if @users_found.length != clients_params[:emails].to_a.length
             render json: {
                 messages: "User does not exist",
             }, status: :bad_request
             return
         end
 
-        if options_params[:options_id].all? {|i| @options_ids.exclude?(i)}
+        if @users_found.length == 0
+            render json: {
+                messages: "You must provide a user",
+            }, status: :bad_request
+            return
+        end
+
+        if @options_found.length != options_params[:names].to_a.length
         render json: {
             messages: "Option does not exist",
         }, status: :bad_request
             return
         end
-    
+
+        if @options_found.length == 0
+            render json: {
+                messages: "You must provide an option",
+            }, status: :bad_request
+            return
+        end        
+       
         if @contract.save! #Save contract
         
-            users_params[:users_id].each do |user_id| #post request users params
-                subscription = Subscription.new(user_id: user_id, contract_id: @contract.id)
+            @users_found.each do |user| #post request users params
+                subscription = Subscription.new(user_id: user.id, contract_id: @contract.id)
                 @subscriptions << subscription
                 
             end
 
-            options_params[:options_id].each do |option_id| #post request contracts params
-                contract_option = ContractOption.new(option_id: option_id, contract_id: @contract.id)
+            @options_found.each do |option| #post request contracts params
+                contract_option = ContractOption.new(option_id: option.id, contract_id: @contract.id)
                 @contract_options << contract_option
             end
     
@@ -69,12 +83,12 @@ class Api::V1::ContractsController < Api::V1::BaseController
         params.require(:contract).permit(:number, :status, :date_start, :date_end)
     end
 
-    def users_params
-        params.require(:clients).permit(users_id: [])
+    def clients_params
+        params.require(:clients).permit(emails: [])
     end
 
     def options_params
-        params.require(:options).permit(options_id: [])
+        params.require(:options).permit(names: [])
     end
 
     def render_error
