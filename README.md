@@ -32,7 +32,7 @@ please keep **"authentication_token"** in the response, it is **your token** for
 request Postman: GET http://localhost:3000/api/v1/contracts. 
 
 headers: `{"X-User-Token": "*your token*", "X-User-Email": "*your email*"}. `
-if user is admin, the API responds with the list of all contracts, if he's not admin the API response is the list of contracts the current user has subscripted to.
+if the user is admin, the API responds with the list of all contracts, if he's not admin the API response is the list of contracts the current user has subscripted to.
 
 ### POST Contract Endpoint : ###
 
