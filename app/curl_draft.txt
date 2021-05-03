@@ -2,7 +2,7 @@ USER IS MATHIEU VALERY
 curl -i -X GET                                       \
        -H 'Content-Type: application/json'              \
        -H 'X-User-Email: mathieuvalery@gmail.com'               \
-       -H 'X-User-Token: qVsm5b5zVfUXx3p-R9h5'          \
+       -H 'X-User-Token: HMrdTih7rsTa-brSonhs'          \
        http://localhost:3000/api/v1/contracts
 
 
@@ -10,9 +10,16 @@ USER IS JOHN DOE
 curl -i -X GET                                       \
        -H 'Content-Type: application/json'              \
        -H 'X-User-Email: johndoe@gmail.com'               \
-       -H 'X-User-Token: 1dregDwpJhy-hxAkc-xX'          \
+       -H 'X-User-Token: WKuY1RLjC7gTZ1rmJQo3'          \
        http://localhost:3000/api/v1/contracts
 
 SIGN IN
 curl -d '{"email":"johndoe@gmail.com", "password":"helloworld"}' -H "Content-Type: application/json" -X POST http://localhost:3000/api/v1/sign_in
 
+CREATE CONTRACT
+
+curl -d '{
+       "contract": {"number": "000011", "date_start": "2022-01-01", "date_end": "2022-01-01", "status": "pending"},
+       "clients": {"emails": ["johndoe@gmail.com"]},
+       "options": {"names": ["fire"]}
+}' -H "Content-Type: application/json" -H "X-User-Email: mathieuvalery@gmail.com" -H "X-User-Token: HMrdTih7rsTa-brSonhs" -X POST http://localhost:3000/api/v1/contracts

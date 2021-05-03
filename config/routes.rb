@@ -8,7 +8,7 @@ Rails.application.routes.draw do
         post "sign_in", to: "sessions#create"
       end
       resources :users, only: [ :index ]
-      resources :contracts, only: [ :index ]
+      resources :contracts, only: [ :index, :create ]
     end
   end
 end
